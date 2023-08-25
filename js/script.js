@@ -33,15 +33,14 @@ callButtonClose.addEventListener('click', () => {
   callForm.classList.remove('call-visible');
 })
 
-document.addEventListener('click', (e) => {
-  let call = document.querySelector('.call')
-  let callContainer = call.querySelector('.call-container')
-  if (call.classList.contains('call-visible')
-   && !callContainer.contains(e.target)) {
-    callForm.classList.add('hidden');
-    callForm.classList.remove('call-visible');
-  }
-})
+// document.addEventListener('click', (e) => {
+//   let callContainer = callForm.querySelector('.call-container')
+//   if (callForm.classList.contains('call-visible')
+//    && !callContainer.contains(e.target)) {
+//     callForm.classList.add('hidden');
+//     callForm.classList.remove('call-visible');
+//   }
+// })
 
 // Slider of photo gallery
 
@@ -110,51 +109,70 @@ catalogButtons.forEach(item => {
 document.addEventListener('click', (e) => {
   let catalogItemAdvanced = document.querySelector('.catalog-item-advanced')
   let catalogCard = catalogItemAdvanced.querySelector('.catalog-card')
-  console.log(45);
   if (catalogItemAdvanced.classList.contains('catalog-item-advanced')
-   && !catalogCard.contains(e.target)) {
-    console.log(334);
+   && !catalogCard.contains(e.target)
+   && !document.querySelector('.order').contains(e.target)) {
     document.querySelector('.catalog-item-advanced').classList.remove('catalog-item-advanced');
     document.body.style.overflow = 'inherit';
   }
 })
 
 // Catalog order
-let orderFormDiv
-
+let orderDiv;
 
 function createForm() {
-  orderFormDiv = document.createElement('div');
   let orderDiv = addElement('div', '', 'order');
   let orderContainer = addElement('div', '', 'order-container');
   let orderWrapper = addElement('div', '', 'order-wrapper');
-  let orderButton = addElement('button', '', 'order-button-close');
-  let orderTitle = addElement('h2', 'Заполните форму', 'order-title');
+  let orderButtonClose = addElement('button', '', 'order-button-close');
+  let orderTitle = addElement('h2', 'Оставить заявку', 'order-title');
   let orderForm = addElement('form', '', 'order-form');
+  orderForm.action = "#";
   let labelName = addElement('label', 'Введите имя');
+  labelName.for = "name";
   let inputName = addElement('input', '', 'order-input');
+  inputName.type = "text";
+  inputName.name = "name";
+  inputName.id = "name";
+  inputName.placeholder = "Введите имя";
+  inputName.attributes.required = "required";
   let labelEmail = addElement('label', 'Введите E-mail');
+  labelEmail.for = "email";
   let inputEmail = addElement('input', '', 'order-input');
+  inputEmail.type = "email";
+  inputName.name = "email";
+  inputName.id = "email";
+  inputName.placeholder = "Введите Email";
+  inputEmail.attributes.required = "required";
   let labelPhone = addElement('label', 'Введите номер телефона');
+  labelPhone.for = "phone-number";
   let inputPhone = addElement('input', '', 'order-input');
+  inputPhone.type = "tel";
+  inputName.name = "phone-number";
+  inputName.id = "phone-number";
+  inputName.placeholder = "ххх-ххх-ххх";
+  inputPhone.attributes.required = "required";
+  let orderButton = addElement('button', 'Отправить', 'call-form-button');
+  orderButton.name = "submit";
+  let orderText = addElement('p', '', 'order-text');
+  orderText.innerHTML = 'Нажимая на кнопку, Вы принимаете <a class="text-a" href="#">Положение</a> и <a class="text-a" href="#">Согласие</a> на обработку персональных данных.';
 
-  
-  orderFormDiv.appendChild(orderContainer);
+  orderDiv.appendChild(orderContainer);
   orderContainer.appendChild(orderWrapper);
-  orderWrapper.appendChild(orderButton);
+  orderWrapper.appendChild(orderButtonClose);
   orderWrapper.appendChild(orderTitle);
   orderWrapper.appendChild(orderForm);
   orderForm.appendChild(labelName);
   orderForm.appendChild(inputName);
   orderForm.appendChild(labelEmail);
   orderForm.appendChild(inputEmail);
-  return orderFormDiv;
+  orderForm.appendChild(labelPhone);
+  orderForm.appendChild(inputPhone);
+  orderForm.appendChild(orderButton);
+  orderForm.appendChild(orderText);
+
+  return orderDiv;
 }
-
-let orderForm = createForm()
-
-document.querySelector('.header').appendChild(orderForm)
-
 
 function addElement(tagName, content, tagClass) {
   let element = document.createElement(tagName);
@@ -162,3 +180,21 @@ function addElement(tagName, content, tagClass) {
   if (content) element.insertAdjacentHTML ('beforeEnd', content);
   return element;
 }
+
+if (document.querySelector('.catalog-item-advanced')) {
+  (document.querySelector('.catalog-item-advanced')).
+    querySelector('.btn-order').addEventListener('click', () => {
+    document.querySelector('.catalog-item-advanced').
+    appendChild(createForm())
+  })
+}
+
+document.addEventListener('click', (e) => {
+  let catalogItemAdvanced = document.querySelector('.catalog-item-advanced')
+  let orderButton = catalogItemAdvanced.querySelector('.btn-order')
+  if (catalogItemAdvanced.classList.contains('catalog-item-advanced')
+   && orderButton.contains(e.target)) {
+    document.querySelector('.catalog-item-advanced').
+    appendChild(createForm())
+  }
+})
