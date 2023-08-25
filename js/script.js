@@ -33,6 +33,16 @@ callButtonClose.addEventListener('click', () => {
   callForm.classList.remove('call-visible');
 })
 
+document.addEventListener('click', (e) => {
+  let call = document.querySelector('.call')
+  let callContainer = call.querySelector('.call-container')
+  if (call.classList.contains('call-visible')
+   && !callContainer.contains(e.target)) {
+    callForm.classList.add('hidden');
+    callForm.classList.remove('call-visible');
+  }
+})
+
 // Slider of photo gallery
 
 let slideList = document.querySelector('.gallery-list')
@@ -94,6 +104,19 @@ catalogButtons.forEach(item => {
     document.querySelector('.catalog-item-advanced').classList.remove('catalog-item-advanced');
     document.body.style.overflow = 'inherit';
   })
+})
+
+
+document.addEventListener('click', (e) => {
+  let catalogItemAdvanced = document.querySelector('.catalog-item-advanced')
+  let catalogCard = catalogItemAdvanced.querySelector('.catalog-card')
+  console.log(45);
+  if (catalogItemAdvanced.classList.contains('catalog-item-advanced')
+   && !catalogCard.contains(e.target)) {
+    console.log(334);
+    document.querySelector('.catalog-item-advanced').classList.remove('catalog-item-advanced');
+    document.body.style.overflow = 'inherit';
+  }
 })
 
 // Catalog order
