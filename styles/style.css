@@ -124,7 +124,6 @@ img {
   background-size: 38px;
   background-repeat: no-repeat;
   background-position: center;
-  /* background-color: black; */
   border-radius: 50%;
 }
 
@@ -157,9 +156,8 @@ img {
 }
 
 /* Menu */
-.menu {
-  /* display: none; */
-  position: fixed;
+.menu-container {
+  position: absolute;
   width: 100%;
   height: fit-content;
   overflow: hidden;
@@ -174,40 +172,6 @@ img {
   display: flex;
   flex-direction: column;
   padding: 10px 10px 20px 10px;
-}
-
-.button-close {
-  cursor: pointer;
-  position: absolute;
-  background-color: #f5f5f5;
-  border: none;
-  width: 25px;
-  height: 25px;
-  top: 0px;
-  right: -285px;
-}
-
-.menu-button-close::before {
-  position: absolute;
-  background-color: #222222;
-  content: "";
-  width: 27px;
-  height: 3px;
-  top: 10px;
-  left: 0px;
-  transform: rotate(45deg);
-}
-
-.menu-button-close::after {
-  position: absolute;
-  background-color: #222222;
-  content: "";
-  content: "";
-  width: 27px;
-  height: 3px;
-  top: 10px;
-  left: 0px;
-  transform: rotate(-45deg);
 }
 
 
@@ -890,7 +854,7 @@ img {
   line-height: 1.4;
 }
 
-/* Main-gallery */
+/* Gallery */
 
 .gallery {
   padding: 80px 0;
@@ -1177,6 +1141,27 @@ img {
     text-align: center;
   }
 
+  .gallery {
+    padding: 40px 0;
+  }
+
+  .gallery-list {
+    height: 410px;
+  }
+
+  .gallery-item {
+    margin: 5px;
+  }
+
+  .slide.active {
+    flex: 25;
+}
+
+.slide {
+  height: 400px;
+  margin: 5px;
+}
+
   .contacts-information {
     padding: 20px;
   }
@@ -1212,7 +1197,7 @@ img {
   }
 
   .section-title {
-    font-size: 24px;
+    font-size: 22px;
   }
 
   .section-subtitle {
@@ -1256,7 +1241,6 @@ img {
     margin-left: 0;
     margin-top: 10px;
   }
-  /* Primary */
 
   .primary-overlay {
     padding: 20px 0;
@@ -1388,24 +1372,18 @@ img {
     padding: 20px;
   }
 
+  .information-text {
+    font-size: 16px;
+  }
+
   .gallery {
     padding: 20px 0;
   }
 
   .gallery-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    height: fit-content;
-  }
-
-  .gallery-item {
-    flex-basis: 100%;
-    margin: 15px;
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-size: 100%;
+    flex-direction: column;
+    height: 1200px;
+    flex-wrap: nowrap;
   }
 
   .specifications-wrap div:first-child {
@@ -1433,7 +1411,11 @@ img {
     padding: 20px;
   }
 
-  /* Feedback */
+  .addition-text {
+    font-size: 16px;
+  }
+
+
 
   .feedback {
     padding: 20px 0;

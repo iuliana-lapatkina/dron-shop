@@ -1,12 +1,28 @@
+// Open close menu
+
+const menuButton = document.querySelector('.burger-menu');
+const menu = document.querySelector('.menu-container');
+menuButton.addEventListener('click', () => {
+  menu.classList.toggle('hidden');
+})
+
+function burgerMenu(icon) {
+  icon.classList.toggle("change");
+}
+
 let slideList = document.querySelector('.gallery-list')
 let slideItems = document.querySelectorAll('.gallery-item')
 
 slideList.addEventListener('click', (e) => {
+  const breakpoint = window.matchMedia("(max-width: 767px)");
+  if (breakpoint.matches) {
+    return;
+  }
   let target = e.target;
   if (target.classList.contains('gallery-item')) {
     slideList.classList.add('slider-container');
     slideItems.forEach(item => item.classList.add('slide'));
-  } else return
+  }
   slidesPlugin(target.id-1);
 })
 
@@ -56,9 +72,7 @@ catalogButtons.forEach(item => {
 })
 
 
-function burgerMenu(icon) {
-  icon.classList.toggle("change");
-}
+
 
 
 
