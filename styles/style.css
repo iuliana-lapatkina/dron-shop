@@ -177,14 +177,14 @@ img {
 }
 
 .button-close {
-  /* cursor: pointer;
+  cursor: pointer;
   position: absolute;
   background-color: #f5f5f5;
   border: none;
   width: 25px;
-  height: 25px; */
-  /* top: 0px; */
-  /* right: -285px; */
+  height: 25px;
+  top: 0px;
+  right: -285px;
 }
 
 .menu-button-close::before {
