@@ -20,16 +20,17 @@ const callButtonPrimary = document.querySelector('.primary-button');
 
 callButtonHeader.addEventListener('click', () => {
   callForm.classList.remove('hidden');
-  document.querySelector('.call-overlay').classList.add('overlay-active');
+  callForm.classList.add('call-visible');
 })
 
 callButtonPrimary.addEventListener('click', () => {
   callForm.classList.remove('hidden');
-
+  callForm.classList.add('call-visible');
 })
 
 callButtonClose.addEventListener('click', () => {
   callForm.classList.add('hidden');
+  callForm.classList.remove('call-visible');
 })
 
 // Slider of photo gallery
@@ -95,9 +96,44 @@ catalogButtons.forEach(item => {
   })
 })
 
+// Catalog order
 
 
 
+function createForm() {
+  let div = document.createElement("div")
+  let orderDiv = addElement(div, '', 'order');
+  let orderContainer = addElement(div, '', 'order-container');
+  let orderWrapper = addElement(div, '', 'order-wrapper');
+  let orderButton = addElement(button, '', 'order-button-close');
+  let orderTitle = addElement(h2, 'Заполните форму', 'order-title');
+  let orderForm = addElement(form, '', 'order-form');
+  let labelName = addElement(label, 'Введите имя');
+  let inputName = addElement(input, '', 'input-modal call-input');
+  let labelEmail = addElement(label, 'Введите E-mail');
+  let inputEmail = addElement(input, '', 'input-modal call-input');
+  let labelPhone = addElement(label, 'Введите номер телефона');
+  let inputPhone = addElement(input, '', 'input-modal call-input');
+
+  
+  div.appendChild(orderContainer);
+  orderContainer.appendChild(orderWrapper);
+  orderWrapper.appendChild(orderButton);
+  orderWrapper.appendChild(orderTitle);
+  orderWrapper.appendChild(orderForm);
+  console.log(344);
+  return div;
+}
+
+let orderForm = createForm()
+
+document.querySelector('.header').appendChild(orderForm)
 
 
-
+function addElement(tagName, content, tagClass) {
+  let element = document.createElement(tagName);
+  if (tagClass) element.classList.add(tagClass);
+  if (tagId) element.setAttribute('id', tagId);
+  if (content) element.insertAdjacentHTML ('beforeEnd', content);
+  return element;
+}

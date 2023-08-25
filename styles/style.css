@@ -622,8 +622,7 @@ img {
 
 .catalog-item-advanced .catalog-card {
   flex-direction: row;
-
-  max-width: 800px;
+  max-width: 700px;
 
   border: 2px solid #696969;
   background-color: white;
@@ -655,7 +654,7 @@ img {
   width: 25px;
   height: 25px;
   top: 0px;
-  right: -285px;
+  right: -300px;
 }
 
 .catalog-item-advanced .button-close {
@@ -1343,7 +1342,9 @@ img {
     line-height: 150%;
   }
 
-
+  .catalog-item-advanced .catalog-card {
+    max-width: 400px;
+  }
 
   .catalog {
     margin: 20px 0;
@@ -1351,6 +1352,34 @@ img {
 
   .catalog-item {
     flex-basis: content;
+  }
+
+  .catalog-item-advanced .catalog-card {
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 600px;
+    flex-wrap: wrap;
+  }
+
+  .catalog-item-advanced .catalog-card .catalog-card-information{
+    text-align: center;
+  }
+
+  .catalog-item-advanced .catalog-card .catalog-card-information .catalog-card-description {
+    text-align: left;
+  }
+
+  .button-close {
+    cursor: pointer;
+    display: none;
+    position: relative;
+    background-color: white;
+    border: none;
+    width: 25px;
+    height: 25px;
+    top: -305px;
+    right: -520px;
   }
 
   .specifications-wrap {
@@ -1515,6 +1544,18 @@ img {
   }
 }
 
+@media (max-width: 450px) {
+  .catalog-item-advanced .catalog-card {
+    max-width: 300px;
+    
+  }
+
+
+  .catalog-item-advanced .catalog-card .catalog-card-information .button-close {
+    top: -305px;
+    right: -520px;
+  }
+}
 
 /* Call form  */
 
