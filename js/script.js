@@ -10,6 +10,30 @@ function burgerMenu(icon) {
   icon.classList.toggle("change");
 }
 
+
+// Call form
+
+const callForm = document.querySelector('.call');
+const callButtonClose = document.querySelector('.call-button-close');
+const callButtonHeader = document.querySelector('.btn-header');
+const callButtonPrimary = document.querySelector('.primary-button');
+
+callButtonHeader.addEventListener('click', () => {
+  callForm.classList.remove('hidden');
+  document.querySelector('.call-overlay').classList.add('overlay-active');
+})
+
+callButtonPrimary.addEventListener('click', () => {
+  callForm.classList.remove('hidden');
+
+})
+
+callButtonClose.addEventListener('click', () => {
+  callForm.classList.add('hidden');
+})
+
+// Slider of photo gallery
+
 let slideList = document.querySelector('.gallery-list')
 let slideItems = document.querySelectorAll('.gallery-item')
 

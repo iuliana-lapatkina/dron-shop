@@ -594,6 +594,7 @@ img {
   display: flex;
   flex-wrap: wrap;
   position: relative;
+  justify-content: center;
 }
 
 .catalog-item {
@@ -1155,12 +1156,22 @@ img {
 
   .slide.active {
     flex: 25;
-}
+  }
 
-.slide {
-  height: 400px;
-  margin: 5px;
-}
+  .slide {
+    height: 400px;
+    margin: 5px;
+  }
+
+
+  .delivery_shipping {
+    padding: 40px 0;
+  }
+
+  .delivery-image,
+  .delivery-text {
+    flex-basis: inherit;
+  }
 
   .contacts-information {
     padding: 20px;
@@ -1502,4 +1513,118 @@ img {
   .footer-social {
     display: none;
   }
+}
+
+
+/* Call form  */
+
+.call {
+  /* display: none; */
+  position: fixed;
+  overflow: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  z-index: 5;
+}
+
+.call-wrapper {
+  padding: 30px;
+  background-color: #fff;
+  width: 550px;
+  height: 520px;
+}
+
+.call-button-close {
+  cursor: pointer;
+  position: relative;
+  background-color: white;
+  border: none;
+  width: 25px;
+  height: 25px;
+  top: -10px;
+  left: 470px;
+}
+
+.call-button-close::before {
+  position: absolute;
+  background-color: #222222;
+  content: "";
+  width: 27px;
+  height: 3px;
+  top: 10px;
+  left: 0px;
+  transform: rotate(45deg);
+}
+
+.call-button-close::after {
+  position: absolute;
+  background-color: #222222;
+  content: "";
+  content: "";
+  width: 27px;
+  height: 3px;
+  top: 10px;
+  left: 0px;
+  transform: rotate(-45deg);
+}
+
+.call-title {
+  padding-bottom: 24px;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: -0.6px;
+}
+
+.call-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.call-form label {
+  margin-bottom: 15px;
+}
+
+.call-input {
+  padding: 14px 16px;
+  margin-bottom: 40px;
+  font-family: "Montserrat", sans-serif;
+  width: 100%;
+  background-color: #f5f5f5;
+  border: 1px solid #cfcfcf;
+  border-radius: 4px;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.call-input--area:hover,
+.call-input--area:focus,
+.call-input--area:active {
+  outline: 0;
+  outline-offset: 0;
+}
+
+.call-form-button {
+  display: block;
+  align-self: center;
+  width: 100%;
+  height: 60px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-size: 24px;
+  font-weight: 500;
+  background-color: #222222;
+  color: white;
+}
+
+.call-text {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.call-text a {
+  text-decoration: underline;
 }
